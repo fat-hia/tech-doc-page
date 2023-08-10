@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&family=Roboto+Mono&family=Roboto:wght@400;500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"> 
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navigation" id="navigation">
+    <ul class="navigation__list">
+      <li class="list-item list-item--navigation">
+        <a href="#intro-section" class="list-link list-link--navigation" onclick="hideMenu()">BEM</a>
+        <img src="close-icon.png" alt="Close Menu" id="close-btn" class="close-btn" onclick="hideMenu()">
+      </li>
+      <li class="list-item list-item--navigation">
+        <a href="#block-section" class="list-link list-link--navigation" onclick="hideMenu()">Block</a>
+      </li>
+      <li class="list-item list-item--navigation">
+        <a href="#element-section" class="list-link list-link--navigation" onclick="hideMenu()">Element</a>
+      </li>
+      <li class="list-item list-item--navigation">
+        <a href="#modifier-section" class="list-link list-link--navigation" onclick="hideMenu()">Modifier</a>
+      </li>
+      <li class="list-item list-item--navigation">
+        <a href="#example-section" class="list-link list-link--navigation" onclick="hideMenu()">Example</a>
+      </li>  
+    </ul>
+  </nav>
+  <main class="main" id="main">
+     <!-- Introduction -->
+    <section class="intro-section" id="intro-section">
+      <h1 class="heading heading--main">BEM</h1>
+      <img src="menu-icon.png" alt="" class="menu-btn" onclick="showMenu()" id="menu-btn">
+      <figure class="intro__quote">
+        <blockquote class="intro__quote__body">“There are only two hard problems in Computer Science: cache invalidation and naming things”</blockquote>
+        <figcaption>
+          &mdash; Phil Karlton
+        </figcaption>
+      </figure>
+      <p>
+        It is a known fact that the right style guide can significantly increase development speed, debugging, and the implementation of new features in legacy code. Sadly, most CSS codebases are sometimes developed without any structure or naming conventions. This leads to an unmaintainable CSS codebase in the long term. The BEM approach ensures that everyone who participates in the development of a website works with a single codebase and speaks the same language. Using proper naming will prepare you for the changes in the design of the website.
+      </p>
+      <p>
+        CSS BEM uses compound names for CSS classes, those being <strong>“block__element--modifier”</strong>. Here’s an example of what a CSS developer writing in the BEM style might look like:
+      </p>
+      <code>
+          .block <br>
+          .block__element<br>
+          .block__element--modifier
+      </code>
+      </figure>
+    </section>
+    <!-- Block -->
+    <section class="block-section" id="block-section">
+      <h2 class="heading">Block</h2>
+      <p>
+        Block encapsulates a standalone entity that is meaningful on its own.
+      </p>
+      <ul class="list">
+        <li class="list-item">
+          <strong>Naming:</strong> Block names may consist of Latin letters, digits, and dashes. To form a CSS class, add a short prefix for namespacing: <code>.block</code>
+        </li>
+        <li class="list-item">
+          <strong>HTML:</strong> Any DOM node can be a block if it accepts a class name.
+          <code>&lt;div class ="block"&gt;....&lt;/div&gt;</code>
+        </li>
+        <li class="list-item">
+          <strong>CSS:</strong> Use class name selector only. No tag name or ids. No dependency on other blocks/elements on a page. <code>.block { color : #042; }</code>
+        </li>
+      </ul>
+    </section>
+    <!-- Element -->
+    <section class="element-section" id="element-section">
+      <h2 class="heading">Element</h2>
+      <p>
+        An element is a part of a block and has no standalone meaning. Any element is semantically tied to its block.
+      </p>
+      <ul class="list">
+        <li class="list-item">
+          <strong>Naming:</strong> Element names may consist of Latin letters, digits, dashes and underscores. CSS class is formed as block name plus two underscores plus element name: <code>.block__element</code>
+        </li>
+        <li class="list-item">
+          <strong>HTML:</strong> Any DOM node can be a block if it accepts a class name.
+          <code>&lt;div class ="block"&gt;....&lt;/div&gt;</code>
+        </li>
+        <li class="list-item">
+          <strong>CSS:</strong> Use class name selector only. No tag name or ids. No dependency on other blocks/elements
+          on a page. <code>.block { color : #042; }</code>
+        </li>
+      </ul>
+    </section>
+    <!-- Modifier -->
+    <section class="modifier-section" id="modifier-section">
+      <h2 class="heading">Modifier</h2>
+      <p>
+        Flags on blocks or elements. Use them to change appearance, behavior or state.
+      </p>
+      <ul class="list">
+        <li class="list-item">
+          <strong>Naming:</strong> Naming: Modifier names may consist of Latin letters, digits, dashes and underscores. CSS class is formed as block’s or element’s name plus two dashes: <code>.block--mod</code> or <code>.block__elem--mod</code> and <code>.block--color-black</code> with <code>.block--color-red</code>. Spaces in complicated modifiers are replaced by dash.
+        </li>
+        <li class="list-item">
+          <strong>HTML:</strong> Modifier is an extra class name which you add to a block/element DOM node. Add modifier
+          classes only to blocks/elements they modify, and keep the original class.
+        </li>
+        <li class="list-item">
+          <strong>CSS:</strong> Use modifier class name as selector : <code>.block-- hidden { }</code>. To alter elements based on a block-level modifier : <code>.block--mod .block__elem { }</code> Element modifier : <code>.block__elem--mod { }</code>
+        </li>
+      </ul>
+    </section>
+    <!-- Example -->
+    <section class="example-section" id="example-section">
+      <h2 class="heading">Example</h2>
+      <div class="example__illustration">
+        <fieldset class="illustration_card">
+          <legend>.card</legend>
+          <fieldset class="illustration_image">
+            <legend>.card__image</legend>
+          </fieldset>
+          <fieldset class="illustration_title">
+            <legend>.card__title</legend>
+          </fieldset>
+          <fieldset class="illustration_description">
+            <legend>.card__description</legend>
+          </fieldset>
+          <fieldset class="illustration_btn">
+            <legend>.card__btn--primary</legend>
+          </fieldset>
+          <fieldset class="illustration_btn illustration_btn--secondary">
+            <legend>.card__btn--secondary</legend>
+          </fieldset>
+        </fieldset>
+      </div>
+      <div class="example__code">
+        <div class="example__code__html">
+          <h4 class="heading">HTML</h4>
+          <p>
+            <code>
+              <pre>
+&lt;div class="card"&gt;
+  &lt;div class="card__image"&gt;&lt;/div&gt;
+  &lt;h2 class="card__title"&gt;&lt;/h2&gt;
+  &lt;p class="card__description"&gt;&lt;/p&gt;
+  &lt;button class="card__btn card__btn--primary"&gt;
+  &lt;/button&gt;
+  &lt;button class="card__btn card_btn--secondary"&gt;
+  &lt;/button&gt;
+&lt;/div&gt;  
+              </pre>          
+            </code>
+          </p>
+        </div>
+        <div class="example__code__scss">
+          <h4>SCSS</h4>
+          <pre>
+            <code>
+.card {
+  // image
+  &__image{
+    width: 100%;
+  }
+  // title
+  &__title{
+    font-size: 2.5rem;
+  }
+  // description
+  &__description{
+    font-size: 1.2rem;
+  }
+  // button
+  &__btn{ 
+    display: inline-block;
+    color: black;
+  // primary button
+  &--primary{
+    background-color: blue;
+  }&--secondary{
+    background-color: red;
+    }
+  }
+}</code>
+          </pre>
+        </div>
+        <div class="example__code__css">
+          <h4>CSS</h4>
+          <pre>
+            <code>
+.card__image {
+  width: 100%;
+}
+.card__title {
+  font-size: 2.5rem;
+}
+.card__description {
+  font-size: 1.2rem;
+}
+.card__btn {
+  display: inline-block;
+  color: black;
+}
+.card__btn--primary {
+  background-color: blue;
+}
+.card__btn--secondary {
+  background-color: red;
+}</code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    <!-- Resources -->
+    <section class="resources">
+      <h2 class="heading">Resources</h2>
+      <ul class="list">
+        <li class="list-item"><a href="https://sourcedcode.com/blog/css/what-is-bem-with-examples" class="list-link" target="_blank">https://sourcedcode.com/blog/css/what-is-bem-with-examples</a></li>
+        <li class="list-item"><a href="https://getbem.com/naming/" class="list-link" target="_blank">https://getbem.com/naming/</a></li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    const main = document.getElementById("main");
+    const navigation = document.getElementById("navigation");
+    const menuBtn = document.getElementById("menu-btn");
+    const closeBtn = document.getElementById("close-btn");
+    function hideMenu() {
+      if(window.innerWidth < 960){
+        main.style.opacity = '100%';
+        navigation.style.display = 'none';
+      }
+    }
+    function showMenu() {
+      main.style.opacity = '10%';
+      navigation.style.display = 'block';
+    }
+  </script>
+</body> 
+
+</html>

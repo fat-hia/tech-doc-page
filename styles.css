@@ -1,0 +1,165 @@
+/* GENRAL STYLES */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 16px;
+}
+body{
+  background-color: #292f44;
+  color: hsla(0, 0%, 100%, 0.9);
+  font-family: 'Roboto', Sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-align: left;
+  position: relative;
+}
+
+/* Common Styles */
+section{
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.9);
+  padding: 48px 0;
+  box-sizing: border-box;
+  margin: 0 24px;
+}
+section:last-child{
+  border-bottom: 0;
+}
+.heading{
+  font-family: 'Rubik';
+  margin-bottom: 24px;
+}
+p{
+  margin-bottom: 20px;
+}
+.list{
+  margin-left: 16px;
+}
+.list-item{
+  margin-bottom: 8px;
+}
+.list-item:last-child{
+  margin-bottom: 0;
+}
+code, legend{
+  font-family: 'Roboto Mono', monospace;
+  color: hsl(205, 100%, 60%);
+  font-size: 0.85rem;
+}
+fieldset{
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px;
+}
+legend{
+  padding: 0 8px;
+}
+.list-link{
+  text-decoration: none;
+  color: hsla(0, 0%, 100%, 0.95);
+  font-family: 'Rubik';
+  font-weight: 400;
+  font-size: 0.95rem; 
+}
+.list-link:hover{
+  text-decoration: underline;
+}
+
+/* Specific Styles */
+
+/* Navigation */
+
+#navigation{
+  border: 1px solid hsla(0, 0%, 100%, 0.9);
+  height: 100vh;
+  width: 80%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 1;
+}
+.list--navigation{
+  margin-left: 0;
+}
+.list-item--navigation{
+  padding: 2rem;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.95);
+}
+.list-item--navigation:last-child{
+  border-bottom: none;
+}
+.list-link--navigation{
+  font-size: 1.125rem;
+}
+.list-link--navigation:hover{
+  font-weight: 500;
+  text-decoration: none;
+}
+.close-btn{
+  width: 24px;
+  float: right;
+  position: relative;
+}
+.close-btn:hover, .menu-btn{
+  cursor: pointer;
+}
+
+/* Intro Section*/
+
+.intro-section{
+  position: relative;
+}
+
+.menu-btn{
+  width: 28px;
+  float: right;
+  position: fixed;
+  top: 50px;
+  right: 24px;
+  
+}
+
+.heading--main{
+  color: hsl(205, 100%, 60%);
+  font-size: 3rem;
+  line-height: 2.25rem;
+}
+.intro__quote{
+  margin: 36px 0 24px 0;
+}
+.intro__quote__body{
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Example Section */
+
+.example__illustration{
+  max-width: 600px;
+  margin-bottom: 36px;
+}
+.illustration_image{
+  height: 200px;
+}
+
+/* Large Screen */
+
+@media screen and (min-width: 960px){
+  #navigation{
+    display: block !important;
+    width: 280px;
+  }
+  #main{
+    position: absolute;
+    left: 280px;
+    opacity: 100% !important;
+  }
+  #close-btn, #menu-btn{
+    display: none;
+  }
+}
